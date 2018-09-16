@@ -18,8 +18,8 @@ public class BioServer {
 
     private static Socket socket = null;
 
-    private static final ArrayBlockingQueue ARRAY_QUEUE = new ArrayBlockingQueue(100);
-    private static final ExecutorService EXECUTOR_SERVICE = new ThreadPoolExecutor(20,20,5, TimeUnit.SECONDS,ARRAY_QUEUE);
+    private static final ArrayBlockingQueue ARRAY_QUEUE = new ArrayBlockingQueue(1000);
+    private static final ExecutorService EXECUTOR_SERVICE = new ThreadPoolExecutor(200,200,5, TimeUnit.SECONDS,ARRAY_QUEUE);
 
     static {
 

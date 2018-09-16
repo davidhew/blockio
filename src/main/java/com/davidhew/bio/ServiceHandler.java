@@ -94,11 +94,32 @@ public class ServiceHandler implements Runnable {
                     os.write(response.getBytes());
                     os.flush();
 
+                    if(!socket.isClosed()){
+                        try {
+                            socket.close();
+                        }catch(Exception ex){
+
+                            logger.error("Exception occurs when close socket",ex);
+                        }
+                        return;
+                    }
+
                 }
             }
 
         } catch (Exception e) {
             logger.error("Exception occurs,",e);
+        }
+        finally{
+
+            if(!socket.isClosed()){
+                try {
+                    socket.close();
+                }catch(Exception ex){
+
+                    logger.error("Exception occurs when close socket",ex);
+                }
+            }
         }
     }
 }
